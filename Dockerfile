@@ -1,12 +1,12 @@
-FROM mongo:4.1
+FROM node:10-alpine
 
-WORKDIR C:/Users/user/Desktop/connectDBapp
+RUN mkdir -p /app
+WORKDIR /app
 
-COPY package*.json ./
+COPY package.json /app
+COPY . /app
 
 RUN npm install
-
-COPY . .
 
 EXPOSE 3000
 
